@@ -1,0 +1,31 @@
+{
+    "scripts": {
+        "clean": "rimraf target && rimraf dist",
+        "start": "cross-env NODE_ENV=development nollup -c --hot --content-base public --port 9001",
+        "dist": "npm run clean && cross-env NODE_ENV=production rollup -c",
+        "modts": "./node_modules/.bin/codemod -p babel-plugin-transform-jsx-to-htm temp/**/*.ts",
+        "modtsx": "./node_modules/.bin/codemod -p babel-plugin-transform-jsx-to-htm temp/**/*.tsx",
+        "copytemp": "shx cp -r src temp"
+    },
+    "dependencies": {
+        "preact": "10.0.0-rc.0",
+        "tslib":"1.10.0"
+    },
+    "devDependencies": {
+        "htm":"2.1.1",
+        "@codemod/cli":"2.1.5",
+        "@babel/core":"7.4.5",
+        "babel-plugin-transform-jsx-to-htm": "1.0.0",
+        "nollup":"latest",
+        "rollup": "latest",
+        "rollup-plugin-buble": "latest",
+        "rollup-plugin-hot-css": "latest",
+        "rollup-plugin-jscc": "latest",
+        "rollup-plugin-node-resolve": "latest",
+        "rollup-plugin-static-files": "latest",
+        "rollup-plugin-typescript":"1.0.1",
+        "typescript":"3.5.3",
+        "shx":"0.3.2",
+        "typescript-tslint-plugin":"0.5.4"
+    }
+}
